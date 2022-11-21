@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grids & Circles</title>
+</head>
+<body>
+<h1>Grids & Circles</h1>
+<h2>Production Management</h2>
+<form th:href="@{/new-products}" method="post">
+    <label for="productName">Name</label>
+    <input type="text" id="productName" name="productName">
+
+    <label for="category">Category</label>
+    <select id="category" name="category">
+        <option selected>Open this select menu</option>
+        <option value="COFFEE_BEAN_PACKAGE">COFFEE BEAN PACKAGE</option>
+    </select>
+
+    <label for="price">Price</label>
+    <input type="number" id="price" name="price">
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="3"></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

@@ -4,6 +4,9 @@ import com.example.gccoffee.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class ProductController {
@@ -15,9 +18,24 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    private String productsPage(Model model) {
+    public String productsPage(Model model) {
         var products = productService.getAllProducts();
         model.addAttribute("products", products);
         return "product-list";
+    }
+
+    @GetMapping("new-product")
+    public String newProductPage() {
+        return "new-product";
+    }
+
+    @PostMapping("/new-product")
+    public String newProduct(CreateProductRequest createProductRequest) {
+        productService.createProduct(
+                createProductRequest.productName(),
+                createProductRequest.category(),
+                createProductRequest.price(),
+                createProductRequest.description());
+        return "redirect:/products";
     }
 }
