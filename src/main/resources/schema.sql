@@ -1,7 +1,7 @@
 CREATE TABLE products
 (
     product_id   BINARY(16) PRIMARY KEY,
-    produce_name VARCHAR(20) NOT NULL,
+    product_name VARCHAR(20) NOT NULL,
     category     VARCHAR(50) NOT NULL,
     price        bigint      NOT NULL,
     description  VARCHAR(500) DEFAULT NULL,

@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class Product {
     private final UUID productId;
-    private String produceName;
+    private String productName;
     private Category category;
     private long price;
     private String description;
@@ -14,16 +14,16 @@ public class Product {
 
     public Product(UUID productId, String productName, Category category, long price) {
         this.productId = productId;
-        this.produceName = productName;
+        this.productName = productName;
         this.category = category;
         this.price = price;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
 
-    public Product(UUID productId, String produceName, Category category, long price, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Product(UUID productId, String productName, Category category, long price, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.productId = productId;
-        this.produceName = produceName;
+        this.productName = productName;
         this.category = category;
         this.price = price;
         this.description = description;
@@ -35,8 +35,8 @@ public class Product {
         return productId;
     }
 
-    public String getProduceName() {
-        return produceName;
+    public String getProductName() {
+        return productName;
     }
 
     public Category getCategory() {
@@ -59,8 +59,8 @@ public class Product {
         return updatedAt;
     }
 
-    public void setProduceName(String produceName) {
-        this.produceName = produceName;
+    public void setProductName(String productName) {
+        this.productName = productName;
         this.updatedAt = LocalDateTime.now();
     }
 

@@ -19,6 +19,7 @@ dependencies {
 	implementation 'com.h2database:h2'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.wix:wix-embedded-mysql:4.6.2'
 }
 
 tasks.named('test') {
