@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grids & Circles</title>
+</head>
+<body>
+<h1>Grids & Circles</h1>
+<h2>Production Management</h2>
+<div>
+    <a th:href="@{/new-product}" type="submit">Add Product</a>
+</div>
+
+<table border="1">
+    <tr>
+        <th>product_id</th>
+        <th>product_name</th>
+        <th>category</th>
+        <th>price</th>
+        <th>description</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+    </tr>
+    <tr th:each="product: ${products}" th:object="${product}">
+        <td th:text="*{productId}"></td>
+        <td th:text="*{productName}"></td>
+        <td th:text="*{category}"></td>
+        <td th:text="*{price}"></td>
+        <td th:text="*{description}"></td>
+        <td th:text="*{createdAt}"></td>
+        <td th:text="*{updatedAt}"></td>
+    </tr>
+</table>
+</body>
+</html>
