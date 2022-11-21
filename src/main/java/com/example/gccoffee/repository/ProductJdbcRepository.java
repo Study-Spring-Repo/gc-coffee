@@ -38,7 +38,15 @@ public class ProductJdbcRepository implements ProductRepository {
 
     @Override
     public Product update(Product product) {
-        return null;
+        int update = jdbcTemplate.update(
+                "UPDATE products SET product_name = :productName, category = :category, price = :price, description = :description, created_at = :createdAt, updated_at = :updatedAt " +
+                        "WHERE product_id = UUID_TO_BIN(:productId)",
+                toParamMap(product)
+        );
+        if (update != 1) {
+            throw new RuntimeException("Nothing was updated");
+        }
+        return product;
     }
 
     @Override
@@ -58,7 +66,7 @@ public class ProductJdbcRepository implements ProductRepository {
         try {
             return Optional.ofNullable(
                     jdbcTemplate.queryForObject("SELECT * FROM products WHERE product_name = :productName",
-                    Collections.singletonMap("productName", productName), productRowMapper));
+                            Collections.singletonMap("productName", productName), productRowMapper));
         } catch (EmptyResultDataAccessException e) {
             return Optional.empty();
         }
