@@ -1,6 +1,5 @@
 package com.example.gccoffee.repository;
 
-import com.example.gccoffee.JdbcUtils;
 import com.example.gccoffee.model.Category;
 import com.example.gccoffee.model.Product;
 import com.wix.mysql.EmbeddedMysql;
@@ -80,5 +79,14 @@ class ProductJdbcRepositoryTest {
     void testFindByCategory() {
         var product = repository.findByCategory(Category.COFFEE_BEAN_PACKAGE);
         assertThat(product.isEmpty(), is(false));
+    }
+
+    @Test
+    @Order(5)
+    @DisplayName("상품을 전체 삭제한다.")
+    void testDeleteAll() {
+        repository.deleteAll();
+        var all = repository.findAll();
+        assertThat(all.isEmpty(), is(true));
     }
 }
